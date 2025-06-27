@@ -36,13 +36,22 @@ list_all_versions() {
 	list_github_tags
 }
 
+get_arch() {
+	uname -m
+}
+
+get_platform() {
+	uname
+}
+
 download_release() {
 	local version filename url
 	version="$1"
 	filename="$2"
 
-	# TODO: Adapt the release URL convention for <YOUR TOOL>
-	url="$GH_REPO/archive/v${version}.tar.gz"
+	# TODO: Adapt the release URL convention for oama
+	https://github.com/pdobsan/oama/releases/download/0.21.0/oama-0.21.0-Darwin-arm64.tar.gz
+	url="$GH_REPO/releases/download/${version}/oama-${version}-$(get_platform)-$(get_arch).tar.gz"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
