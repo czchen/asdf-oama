@@ -8,7 +8,6 @@
 
 # Contents
 
-- [asdf-oama  ](#asdf-oama--)
 - [Contents](#contents)
 - [Dependencies](#dependencies)
 - [Install](#install)
